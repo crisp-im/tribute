@@ -333,6 +333,20 @@ class Tribute {
         sel.addRange(range)
     }
 
+
+    // for contenteditable
+    insertNodeAtCursor(node) {
+        var sel, range, html;
+        sel = window.getSelection();
+        range = sel.getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(node);
+        range.selectNodeContents(node)
+        range.collapse(false)
+        sel.removeAllRanges()
+        sel.addRange(range)
+    }
+
     // for regular inputs
     insertAtCaret(textarea, text) {
         var scrollPos = textarea.scrollTop;
